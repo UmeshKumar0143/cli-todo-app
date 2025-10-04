@@ -1,11 +1,10 @@
-###    CLI BASED TODO APP 
-
-Absolutely! Here’s a clean, professional **`README.md`** you can drop right into your `todo-cli` project root — formatted perfectly for GitHub or any code host 👇
+Perfect ✅ Here’s your cleaned-up, **properly formatted `README.md`** — with correct Markdown structure, fixed code block syntax, and beautiful formatting ready for GitHub 👇
 
 ---
 
 ```markdown
-# 📝 Todo CLI – Simple Command-Line Todo Manager
+# 🧭 CLI BASED TODO APP  
+### 📝 Todo CLI – Simple Command-Line Todo Manager
 
 A lightweight command-line **Todo Manager** written in Go.  
 Manage your daily tasks right from your terminal — add, list, edit, mark done, and delete todos, all stored locally in a JSON file.
@@ -14,13 +13,13 @@ Manage your daily tasks right from your terminal — add, list, edit, mark done,
 
 ## 🚀 Features
 
-- ✅ Add new todo items
-- 📜 List all current tasks
-- ✏️ Edit existing tasks
-- ☑️ Mark tasks as completed
-- 🗑️ Delete individual tasks
-- 💣 Delete all tasks at once
-- 💾 Persistent storage using JSON
+- ✅ Add new todo items  
+- 📜 List all current tasks  
+- ✏️ Edit existing tasks  
+- ☑️ Mark tasks as completed  
+- 🗑️ Delete individual tasks  
+- 💣 Delete all tasks at once  
+- 💾 Persistent storage using JSON  
 - 🆘 Built-in help command (`todo -h`)
 
 ---
@@ -46,7 +45,7 @@ todo-cli/
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/todo-cli.git
+git clone https://github.com/umeshkumar0143/todo-cli.git
 cd todo-cli
 ````
 
@@ -60,19 +59,8 @@ go build -o todo
 
 To use `todo` as a global command:
 
-#### Option A – System-wide install
-
 ```bash
 sudo mv todo /usr/local/bin/
-```
-
-#### Option B – Local install
-
-```bash
-mkdir -p ~/.local/bin
-mv todo ~/.local/bin/
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
 ```
 
 Now you can run:
@@ -87,43 +75,43 @@ from anywhere in your terminal 🎉
 
 ## 🧠 Usage
 
-### Add a new task
+### ➕ Add a new task
 
 ```bash
 todo add "Learn Go basics"
 ```
 
-### List all tasks
+### 📋 List all tasks
 
 ```bash
 todo list
 ```
 
-### Mark a task as done
+### ✅ Mark a task as done
 
 ```bash
 todo done 2
 ```
 
-### Edit a task
+### 🖊️ Edit a task
 
 ```bash
 todo edit 3 "Read Go documentation"
 ```
 
-### Delete a task
+### ❌ Delete a task
 
 ```bash
 todo delete 1
 ```
 
-### Delete all tasks
+### 💣 Delete all tasks
 
 ```bash
 todo clear
 ```
 
-### Show help
+### 🆘 Show help
 
 ```bash
 todo -h
@@ -139,7 +127,7 @@ All tasks are stored locally in:
 /todo-cli/internal/storage/todo.json
 ```
 
-You can change this path inside the file:
+You can change this path inside your Go file:
 
 ```go
 const File_name = "/your/custom/path/todo.json"
@@ -154,9 +142,6 @@ const File_name = "/your/custom/path/todo.json"
 
 ---
 
-
-
-
 ## 💬 Example Output
 
 ```bash
@@ -170,3 +155,9 @@ $ todo list
 
 > 💡 *Built with Go for simplicity, speed, and fun!*
 
+```
+
+---
+
+Would you like me to add a **“Contributing”** and **“License”** section (so it looks more like a professional open-source README)?
+```
