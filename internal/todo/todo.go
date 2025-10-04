@@ -24,15 +24,34 @@ func SaveTodo(Todos []Item) error {
 	return os.WriteFile(File_name, data, 0644)
 }
 
-func LoadTodo() {
+func LoadTodo() ([]Item, error) {
+			data,err := os.ReadFile(File_name)
+
+			if	err!=nil {
+				fmt.Println("An error Occured ")
+				return nil, err
+			}
+
+			var Todos []Item
+
+			if err:=json.Unmarshal(data,&Todos); err!=nil {
+				fmt.Println("Error Occured parsing file ")
+				return nil,err
+			}
+
+			return Todos,nil
 
 }
 
 func NewItem(title string) Item {
-	return Item{}
+	return Item{
+		Title: title,
+		Done: false ,
+	}
 }
 
 func AddTodo(Task Item) {
+		
 
 }
 
