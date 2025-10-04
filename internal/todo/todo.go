@@ -51,12 +51,20 @@ func NewItem(title string) Item {
 }
 
 func AddTodo(Task Item) {
-		
+		Todos,err :=  LoadTodo()
+
+		if err!=nil {
+			fmt.Println("Error Occured")
+			return 
+		}
+
+		Todos = append(Todos, Task)
+		SaveTodo(Todos)
 
 }
 
 func EditTodo() {
-
+		
 }
 
 func MarkDone() {
