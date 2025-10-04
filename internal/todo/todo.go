@@ -39,6 +39,7 @@ func LoadTodo() ([]Item, error) {
 			}
 
 			var Todos []Item
+				
 
 			if err:=json.Unmarshal(data,&Todos); err!=nil {
 				fmt.Println("Error Occured parsing file ")
