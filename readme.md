@@ -22,23 +22,7 @@ Manage your daily tasks right from your terminal — add, list, edit, mark done,
 - 💾 Persistent storage using JSON  
 - 🆘 Built-in help command (`todo -h`)
 
----
 
-## 🧩 Project Structure
-
-```
-
-todo-cli/
-├── internal/
-│   └── storage/
-│       └── todo.json        # JSON file for saving todos
-├── main.go                  # Entry point (CLI logic)
-├── go.mod                   # Go module definition
-└── internal/todo/           # Package containing core logic
-
-````
-
----
 
 ## ⚙️ Installation
 
@@ -151,13 +135,5 @@ $ todo list
 3. [  ] Explore Go concurrency
 ```
 
----
 
-> 💡 *Built with Go for simplicity, speed, and fun!*
 
-```
-
----
-
-Would you like me to add a **“Contributing”** and **“License”** section (so it looks more like a professional open-source README)?
-```
