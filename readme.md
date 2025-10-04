@@ -1,14 +1,11 @@
 
----
-
-```markdown
 # 🧭 CLI BASED TODO APP  
 ### 📝 Todo CLI – Simple Command-Line Todo Manager
 
 A lightweight command-line **Todo Manager** written in Go.  
 Manage your daily tasks right from your terminal — add, list, edit, mark done, and delete todos, all stored locally in a JSON file.
 
----
+
 
 ## 🚀 Features
 
@@ -26,6 +23,7 @@ Manage your daily tasks right from your terminal — add, list, edit, mark done,
 ## ⚙️ Installation
 
 ### 1️⃣ Clone the repository
+
 
 ```bash
 git clone https://github.com/umeshkumar0143/todo-cli.git
