@@ -33,7 +33,7 @@ cd todo-cli
 ### 2️⃣ Build the binary
 
 ```bash
-go build -o todo
+go build -o todo ./cmd/todo/main.go 
 ```
 
 ### 3️⃣ (Optional) Install globally
