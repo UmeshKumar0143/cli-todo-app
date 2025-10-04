@@ -1,55 +1,49 @@
 package todo
 
-import "fmt"
-
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+)
 
 type Item struct {
 	Title string
 	Done  bool
 }
 
-func NewItem(title string) Item {
-	return Item{
+const File_name = "internal/storage/todo.json"
 
-		Title: title,
-		Done:  false,
-	}
-}
+func SaveTodo(Todos []Item) error {
+	data, err := json.MarshalIndent(Todos, "", "")
 
-
-var Todos []Item
-
-
-
-func AddNewItem( newItem Item){
-		Todos = append(Todos, newItem)
-}
-
-func ShowTodos(){
-	for i:=0 ; i<len(Todos); i++{
-		fmt.Printf("%d. %s done %t  \n" ,i+1,  Todos[i].Title, Todos[i].Done); 
-	}
-}
-
-func Markdone(index int){
-	if index<1 || index>len(Todos){
-		fmt.Printf("Enter valid Index %d", index)
+	if err != nil {
+		fmt.Println("An Error Occured ")
+		return err
 	}
 
-	Todos[index-1].Done = true 
-	
+	return os.WriteFile(File_name, data, 0644)
+}
+
+func LoadTodo() {
 
 }
 
-func EditTodo(index int , new_title string )  {
-	if index<1 || index>len(Todos){
-		fmt.Printf("Enter valid Index %d", index)
-	}
+func NewItem() Item {
 
-	Todos[index-1].Title = new_title
-	
-	
-		
 }
 
+func AddTodo(Task Item) {
 
+}
+
+func EditTodo() {
+
+}
+
+func MarkDone() {
+
+}
+
+func DeleteTodo() {
+
+}

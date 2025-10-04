@@ -4,39 +4,64 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/UmeshKumar0143/cli-todo-app.git/internal/todo"
+	// "strings"
+	// "github.com/UmeshKumar0143/cli-todo-app.git/internal/todo"
 )
 
 func main() {
 
-	var n int 
-	fmt.Println("Enter the number of todos to add ")
-	fmt.Scanf("%d", &n)
 
-	for i:=0;  i<n; i++ {
-		reader := bufio.NewReader(os.Stdin)
-		todo_tittle,_ := reader.ReadString('\n')
-		todo_tittle = strings.TrimSpace(todo_tittle)
-		item := todo.NewItem(todo_tittle) 	
-		todo.AddNewItem(item)
+	args := os.Args[1:]
+
+	reader := bufio.NewReader(os.Stdin)
+
+
+	switch  args[0] {
+
+		case "add": 
+
+		if len(args) < 2 {
+       		 fmt.Println("Error: no task title provided")
+       	 	return
+    	}
+
+
+		 title := strings.Join(args[1:], " ")
+		 new_todo := todo.NewItem(title)
+		 todo.AddNewItem(new_todo)
+		 fmt.Println("Task Added Successfully")
+
+		case "show": 
+			todo.ShowTodos()
+
+		case "edit": 
+
+		 todo_idx,_ := strconv.Atoi(args[1]) 
+
+		 fmt.Println("Enter the New Title")	
+		 
+		 new_title,_ := reader.ReadString('\n')
+		 new_title = strings.TrimSpace(new_title)
+		 todo.EditTodo(todo_idx, new_title)
+
+		 todo.show
+
+		case "done": 
+		fmt.Println("done command")
+
+		case "delete": 
+		fmt.Println("delete command")
+
+	default: 
+	fmt.Println("Not a Valid Command ")
 	}
 
-	
-	todo.ShowTodos()
 
-	fmt.Println("Enter task to be marked Completed ")
-     var idx int 
-	 fmt.Scanf("%d", &idx)
-
-	 todo.Markdone(idx)
-	 
-	 todo.ShowTodos()
-
-
-
-
+	fmt.Println(args)
 
 
 }
