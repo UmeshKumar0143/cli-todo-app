@@ -182,7 +182,6 @@ Examples:
   todo add "Learn Go testing"
   todo list
   todo complete 2
-  todo -i
 `
  fmt.Println(helpText)
 }
