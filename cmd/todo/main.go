@@ -27,7 +27,6 @@ func main() {
        	 	return
     	}
 
-
 		 title := strings.Join(args[1:], " ")
 		 new_todo := todo.NewItem(title)
 		 todo.AddTodo(new_todo)
@@ -40,26 +39,45 @@ func main() {
 
 		 todo_idx,_ := strconv.Atoi(args[1]) 
 
-		 fmt.Println("Enter the New Title")	
+		 fmt.Print("Enter the New Title: ")	
 		 
 		 new_title,_ := reader.ReadString('\n')
 		 new_title = strings.TrimSpace(new_title)
 		 todo.EditTodo(todo_idx, new_title)
 
+		fmt.Printf("%d Task Edited Succesfuly \n", todo_idx)
+
+
 		 todo.ShowTodos()
 
 		case "done": 
-		fmt.Println("done command")
+
+			todo_idx,_ := strconv.Atoi(args[1])
+
+			todo.MarkDone(todo_idx)
+
+			fmt.Printf("%d Task Marked as Complete \n", todo_idx)
+
+			todo.ShowTodos()
 
 		case "delete": 
-		fmt.Println("delete command")
+
+			todo_idx,_ := strconv.Atoi(args[1])
+
+			todo.DeleteTodo(todo_idx)
+
+			fmt.Println("Task Deleted Succesfully ")
+
+			todo.ShowTodos()
+	case "deleteAll":
+		todo.DeleteAll()
+		fmt.Println("All Todos Deleted Succesfully ")
 
 	default: 
 	fmt.Println("Not a Valid Command ")
 	}
 
 
-	fmt.Println(args)
 
 
 }

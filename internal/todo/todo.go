@@ -11,11 +11,13 @@ type Item struct {
 	Done  bool
 }
 
-const File_name = "internal/storage/todo.json"
+const File_name = "/kira/Systuumm/sde/projects/todo-cli/internal/storage/todo.json"
+
+
 
 func SaveTodo(Todos []Item) error {
 	data, err := json.MarshalIndent(Todos, "", "")
-
+	
 	if err != nil {
 		fmt.Println("An Error Occured ")
 		return err
@@ -28,8 +30,10 @@ func LoadTodo() ([]Item, error) {
 			data,err := os.ReadFile(File_name)
 
 			if	err!=nil {
-				fmt.Println("An error Occured ")
-				return nil, err
+				if os.IsNotExist(err){
+					return []Item{}, nil
+
+				}
 			}
 
 			var Todos []Item
@@ -53,8 +57,12 @@ func NewItem(title string) Item {
 func AddTodo(Task Item) {
 		Todos,err :=  LoadTodo()
 
+
+
+
 		if err!=nil {
 			fmt.Println("Error Occured")
+			fmt.Println(err)
 			return 
 		}
 
@@ -120,6 +128,12 @@ func DeleteTodo(index int) {
 
 }
 
+func DeleteAll(){
+	var Todos []Item
+
+	SaveTodo(Todos)
+}
+
 func ShowTodos(){
 	
 	Todos , err :=  LoadTodo()
@@ -130,7 +144,7 @@ func ShowTodos(){
 	}
 
 	if len(Todos) == 0 {
-		fmt.Println("No current tasks. Add some tasks...")
+		fmt.Println("No current tasks. add some tasks...")
 		return
 	}
 
