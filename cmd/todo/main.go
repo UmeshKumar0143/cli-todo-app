@@ -32,7 +32,7 @@ func main() {
 		 todo.AddTodo(new_todo)
 		 fmt.Println("Task Added Successfully")
 
-		case "show": 
+		case "list": 
 			todo.ShowTodos()
 
 		case "edit": 
@@ -45,7 +45,7 @@ func main() {
 		 new_title = strings.TrimSpace(new_title)
 		 todo.EditTodo(todo_idx, new_title)
 
-		fmt.Printf("%d Task Edited Succesfuly \n", todo_idx)
+		fmt.Printf(" Task %d  Edited Succesfuly \n", todo_idx)
 
 
 		 todo.ShowTodos()
@@ -72,6 +72,8 @@ func main() {
 	case "deleteAll":
 		todo.DeleteAll()
 		fmt.Println("All Todos Deleted Succesfully ")
+	case "-h","--help","help":
+		todo.PrintHelp()
 
 	default: 
 	fmt.Println("Not a Valid Command ")

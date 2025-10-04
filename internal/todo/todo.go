@@ -34,6 +34,8 @@ func LoadTodo() ([]Item, error) {
 					return []Item{}, nil
 
 				}
+				fmt.Println("An error Occurred reading file")
+				return nil, err
 			}
 
 			var Todos []Item
@@ -56,8 +58,6 @@ func NewItem(title string) Item {
 
 func AddTodo(Task Item) {
 		Todos,err :=  LoadTodo()
-
-
 
 
 		if err!=nil {
@@ -131,7 +131,7 @@ func DeleteTodo(index int) {
 func DeleteAll(){
 	var Todos []Item
 
-	SaveTodo(Todos)
+	SaveTodo(Todos	)
 }
 
 func ShowTodos(){
@@ -155,4 +155,33 @@ func ShowTodos(){
 		}
 		fmt.Printf("%d. [ %s ] %s\n", i+1, status, item.Title)
 	}
+}
+
+func PrintHelp() {
+ helpText := `
+Todo - A simple command line todo manager
+
+Usage:
+  todo [command] [arguments]
+  todo [flags]
+
+Commands:
+  add <text>       	   Add a new todo item
+  list             	   List all todo items
+  done   	 <n>       Mark item n as completed
+  edit   	 <n>       Edit A Todo 
+  delete 	 <n>	   Delete item n 
+  deleteAll                Delete All Todos
+  help             	   Show this help message
+
+Flags:
+  -h             Show this help message
+
+Examples:
+  todo add "Learn Go testing"
+  todo list
+  todo complete 2
+  todo -i
+`
+ fmt.Println(helpText)
 }
