@@ -8,8 +8,6 @@ import (
 	"strings"
 
 	"github.com/UmeshKumar0143/cli-todo-app.git/internal/todo"
-	// "strings"
-	// "github.com/UmeshKumar0143/cli-todo-app.git/internal/todo"
 )
 
 func main() {
@@ -32,7 +30,7 @@ func main() {
 
 		 title := strings.Join(args[1:], " ")
 		 new_todo := todo.NewItem(title)
-		 todo.AddNewItem(new_todo)
+		 todo.AddTodo(new_todo)
 		 fmt.Println("Task Added Successfully")
 
 		case "show": 
@@ -48,7 +46,7 @@ func main() {
 		 new_title = strings.TrimSpace(new_title)
 		 todo.EditTodo(todo_idx, new_title)
 
-		 todo.show
+		 todo.ShowTodos()
 
 		case "done": 
 		fmt.Println("done command")

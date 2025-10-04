@@ -63,14 +63,82 @@ func AddTodo(Task Item) {
 
 }
 
-func EditTodo() {
+func EditTodo(index int , new_title string) {
+		Todos , err :=  LoadTodo()
+
+		if err!=nil {
+			fmt.Println("Error Occured")
+			return 
+		}
 		
+		if index < 1 || index > len(Todos) {
+		fmt.Printf("Enter valid index: %d", index)
+		return 
+	   }
+
+		Todos[index-1].Title = new_title
+		SaveTodo(Todos) 
+
 }
 
-func MarkDone() {
+func MarkDone(index int) {
+
+	Todos , err :=  LoadTodo()
+
+    if err!=nil {
+	  fmt.Println("Error Occured")
+			return 
+		}
+
+	if index < 1 || index > len(Todos) {
+		fmt.Printf("Enter valid index: %d", index)
+		return 
+	 }
+
+	 Todos[index-1].Done = true
+	 SaveTodo(Todos)
 
 }
 
-func DeleteTodo() {
+func DeleteTodo(index int) {
 
+		Todos , err :=  LoadTodo()
+
+    if err!=nil {
+	  fmt.Println("Error Occured")
+			return 
+		}
+
+	if index < 1 || index > len(Todos) {
+		fmt.Printf("Enter valid index: %d", index)
+		return 
+	 }
+
+
+	 Todos = append(Todos[:index-1], Todos[index:]... )
+	 SaveTodo(Todos)
+
+}
+
+func ShowTodos(){
+	
+	Todos , err :=  LoadTodo()
+
+    if err!=nil {
+	  fmt.Println("Error Occured")
+			return 
+	}
+
+	if len(Todos) == 0 {
+		fmt.Println("No current tasks. Add some tasks...")
+		return
+	}
+
+	for i, item := range Todos {
+		status := " "
+		if item.Done {
+			status = "✓"
+		}
+		fmt.Printf("%d. [ %s ] %s\n", i+1, status, item.Title)
+	}
 }
