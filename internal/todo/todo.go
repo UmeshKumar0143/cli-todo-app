@@ -28,8 +28,8 @@ func LoadTodo() {
 
 }
 
-func NewItem() Item {
-
+func NewItem(title string) Item {
+	return Item{}
 }
 
 func AddTodo(Task Item) {
