@@ -1,4 +1,3 @@
-Perfect ✅ Here’s your cleaned-up, **properly formatted `README.md`** — with correct Markdown structure, fixed code block syntax, and beautiful formatting ready for GitHub 👇
 
 ---
 
